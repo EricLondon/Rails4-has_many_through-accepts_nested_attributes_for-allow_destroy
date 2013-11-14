@@ -1,4 +1,6 @@
 Rails4::Application.routes.draw do
+  resources :houses
+
   resources :garages
 
   resources :cars
