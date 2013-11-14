@@ -1,4 +1,4 @@
-<%= form_for(@car) do |f| %>
+<%= form_for(@car) do |car_form| %>
   <% if @car.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
@@ -12,10 +12,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= car_form.label 'Car title' %><br>
+    <%= car_form.text_field :title %>
   </div>
+
+  <%= car_form.fields_for :garages do |garage_form| %>
+
+    <div class="field">
+      <%= garage_form.label 'Garage title' %><br>
+      <%= garage_form.text_field :title %>
+    </div>
+
+    <%= garage_form.fields_for :house do |house_form| %>
+
+      <div class="field">
+        <%= house_form.label 'House title' %><br>
+        <%= house_form.text_field :title %>
+      </div>
+
+    <% end %>
+
+  <% end %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= car_form.submit %>
   </div>
+
 <% end %>
