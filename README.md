@@ -34,4 +34,9 @@ class House < ActiveRecord::Base
 end
 ```
 
-Nested form here: http://localhost:3000/cars/1/edit
+Nested form here:
+
+- http://localhost:3000/cars/1/edit
+- https://github.com/EricLondon/Rails4-has_many_through-accepts_nested_attributes_for-allow_destroy/blob/master/rails4/app/views/cars/_form.html.erb
+
+
