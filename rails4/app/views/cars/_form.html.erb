@@ -16,23 +16,39 @@
     <%= car_form.text_field :title %>
   </div>
 
-  <%= car_form.fields_for :garages do |garage_form| %>
+  <table>
+    <%= car_form.fields_for :garages do |garage_form| %>
+      <tr>
+        <td>
+          <div class="field">
+            <%= garage_form.label 'Garage title' %><br>
+            <%= garage_form.text_field :title %>
+          </div>
+        </td>
 
-    <div class="field">
-      <%= garage_form.label 'Garage title' %><br>
-      <%= garage_form.text_field :title %>
-    </div>
+        <td>
+          <div class="field">
+            <%= garage_form.check_box :_destroy %>
+            <%= garage_form.label :_destroy, "Remove" %>
+          </div>
+        </td>
 
-    <%= garage_form.fields_for :house do |house_form| %>
+        <%= garage_form.fields_for :house do |house_form| %>
 
-      <div class="field">
-        <%= house_form.label 'House title' %><br>
-        <%= house_form.text_field :title %>
-      </div>
+          <td>
+            <div class="field">
+              <%= house_form.label 'House title' %><br>
+              <%= house_form.text_field :title %>
+            </div>
+          </td>
+
+        <% end %>
+
+      </tr>
 
     <% end %>
 
-  <% end %>
+  </table>
 
   <div class="actions">
     <%= car_form.submit %>

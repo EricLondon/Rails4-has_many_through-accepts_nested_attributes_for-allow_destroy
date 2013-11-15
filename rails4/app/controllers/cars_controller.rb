@@ -74,6 +74,7 @@ class CarsController < ApplicationController
         :garages_attributes => [
           :id,
           :title,
+          :_destroy,
           :house_attributes => [:id, :title]
         ]
       )
